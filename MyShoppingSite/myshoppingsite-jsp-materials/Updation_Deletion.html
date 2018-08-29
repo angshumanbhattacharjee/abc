@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+	table, th, td 
+	{
+		border: 3px solid black;
+		border-collapse: collapse;
+		padding: 10px;
+		text-align: center;
+	}
+</style>
+<title>Update And Delete</title>
+<script>
+	function addRow()
+	{
+    	var tbl = document.getElementById("productTable");
+    	var lastRow = tbl.rows.length;
+    	var iteration = lastRow;
+    	var row = tbl.insertRow(lastRow);
+    	
+    	//Product id
+    	var cellPID = row.insertCell(0);
+        var el = document.createElement('input');
+        el.type = 'text';
+        el.name = 'pid' + iteration;
+        el.id = 'pid' + iteration;
+        el.className = 'textbox';
+        el.runat = 'server';
+        cellPID.appendChild(el);
+        
+        //Product Description
+        var cellPD = row.insertCell(1);
+        var el = document.createElement('input');
+        el.type = 'text';
+        el.name = 'pd' + iteration;
+        el.id = 'pd' + iteration;
+        el.className = 'textbox';
+        el.runat = 'server';
+        cellPD.appendChild(el);
+        
+        //Price
+        var cellPrice = row.insertCell(2);
+        var el = document.createElement('input');
+        el.type = 'text';
+        el.name = 'price' + iteration;
+        el.id = 'pd' + iteration;
+        el.className = 'textbox';
+        el.runat = 'server';
+        cellPrice.appendChild(el);
+        
+        var cellCheck = row.insertCell(3);
+        var el = document.createElement('input');
+        el.type = 'checkbox';
+        el.name = 'check' + iteration;
+        el.id = 'check' + iteration;
+        el.className = 'textbox';
+        el.runat = 'server';
+        cellCheck.appendChild(el);
+	}
+</script>
+</head>
+<body>
+<table id="productTable" align="center">
+	<tr>
+		<th>Product Id</th>
+		<th>Product Description</th>
+		<th>Price</th>
+		<th>Delete</th>
+	</tr>
+	<tr>
+		<td><input type="text" name ="pid" id ="pid" value=""></td>
+		<td><input type="text" name="pd" id="pd" value=""></td>
+		<td><input type="text" name="price" id="price" value=""></td>
+		<td><input type="checkbox" name="check" id="check" value=""></td>
+	</tr>
+</table>
+<p>
+            <input type="button" value="Add Another Product" onclick="addRow()" />
+            <input type="button" value="Delete" />
+            <input type="button" value="Update" />
+        </p>
+</body>
+</html>
